@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(cors());
 
 // Routes
-// app.use('/api/users', require('./routes/users'));
+app.use('/api/test', require('./routes/test'));
 
 // Error handling middleware
 app.use((err, req, res, next) => {
