@@ -11,7 +11,7 @@ const port = process.env.PORT || 5000;
 mongoose
   .connect(process.env.MONGODB_URI, { useNewUrlParser: true })
   .then(() => console.log('MongoDB connected'))
-  .catch((err) => console.log(err));
+  .catch(err => console.log(err));
 
 // Middleware
 app.use(express.json());

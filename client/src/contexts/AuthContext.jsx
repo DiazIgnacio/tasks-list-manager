@@ -3,7 +3,7 @@ import { redirect } from 'react-router-dom';
 
 const AuthContext = createContext({
   isLoggedIn: false,
-  login: (token) => {},
+  login: token => {},
   logout: () => {},
   authToken: null,
   setAuthToken: () => {},
@@ -13,7 +13,7 @@ const AuthContextProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [token, setToken] = useState(null);
 
-  const login = (token) => {
+  const login = token => {
     setIsLoggedIn(true);
     setToken(token);
   };

@@ -12,7 +12,7 @@ const PrivateRoutes = ({ children }) => {
   }, []);
 
   if (isLoading) return <h1>Loading...</h1>;
-  if (!isLoggedIn) return <Navigate to='/login' replace={true} />;
+  if (!isLoggedIn) return <Navigate to="/login" replace={true} />;
 
   return children ? children : <Outlet />;
 };

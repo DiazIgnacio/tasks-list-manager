@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 
-import axios from 'axios';
 import { useAuthContext } from '../../contexts/AuthContext';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
-
-const API_URL = process.env.API_URL || 'http://localhost:8000';
+import apiClient from '../../utils/axios';
 
 const Login = () => {
   const { login, isLoggedIn } = useAuthContext();
@@ -12,24 +10,18 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  if (isLoggedIn) return <Navigate to='/' replace />;
+  if (isLoggedIn) return <Navigate to="/" replace />;
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
 
     try {
-      const response = await axios
-        .post(`${API_URL}/api/login`, {
-          email,
-          password,
-        })
-        .then((res) => {
-          navigate('/');
-          return res.data;
-        });
-      if (response.token) {
-        login(response.token);
-      }
+      const response = await apiClient.post('/api/login', {
+        email,
+        password,
+      });
+      navigate('/');
+      response.token && login(response.token);
     } catch (error) {
       console.error(error);
     }
@@ -40,24 +32,24 @@ const Login = () => {
       <label>
         Email:
         <input
-          type='email'
+          type="email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={e => setEmail(e.target.value)}
         />
       </label>
       <br />
       <label>
         Password:
         <input
-          type='password'
+          type="password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={e => setPassword(e.target.value)}
         />
       </label>
       <br />
-      <button type='submit'>Login</button>
+      <button type="submit">Login</button>
       <br />
-      <Link to='/signup'>Sign Up</Link>
+      <Link to="/signup">Sign Up</Link>
     </form>
   );
 };

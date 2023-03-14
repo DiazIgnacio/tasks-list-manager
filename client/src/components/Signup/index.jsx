@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-
-const API_URL = process.env.API_URL || 'http://localhost:8000';
+import apiClient from '../../utils/axios';
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -11,19 +9,17 @@ const Signup = () => {
   });
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
 
     try {
-      await axios.post(`${API_URL}/api/signup`, formData).then(() => {
-        navigate('/login');
-      });
+      apiClient.post('/api/signup', formData).then(() => navigate('/login'));
     } catch (error) {
       console.error(error);
     }
   };
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -32,8 +28,8 @@ const Signup = () => {
       <label>
         Email:
         <input
-          type='email'
-          name='email'
+          type="email"
+          name="email"
           value={formData.email}
           onChange={handleChange}
         />
@@ -42,13 +38,13 @@ const Signup = () => {
       <label>
         Password:
         <input
-          type='password'
-          name='password'
+          type="password"
+          name="password"
           value={formData.password}
           onChange={handleChange}
         />
       </label>
-      <button type='submit'>Signup</button>
+      <button type="submit">Signup</button>
     </form>
   );
 };

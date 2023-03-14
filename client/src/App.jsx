@@ -7,17 +7,19 @@ import PrivateRoutes from './PrivateRoutes';
 
 import './css/App.css';
 import Signup from './components/Signup';
+import Tasks from './components/Tasks';
 
 function App() {
   return (
-    <div className='App'>
+    <div className="App">
       <Routes>
         <Route element={<PrivateRoutes />}>
-          <Route path='/' element={<Home />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/tasks" element={<Tasks />} />
         </Route>
 
-        <Route path='/login' element={<Login />} />
-        <Route path='/signup' element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
     </div>
   );
