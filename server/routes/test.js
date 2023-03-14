@@ -1,5 +1,3 @@
-// when receiving a GET request to /test, this function will be called
-
 // import the express router
 const router = require('express').Router();
 

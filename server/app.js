@@ -19,6 +19,9 @@ app.use(cors());
 
 // Routes
 app.use('/api/test', require('./routes/test'));
+app.use('/api/tasks', require('./routes/tasks'));
+app.use('/api/login', require('./routes/login'));
+app.use('/api/signup', require('./routes/signup'));
 
 // Error handling middleware
 app.use((err, req, res, next) => {
