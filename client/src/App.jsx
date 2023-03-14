@@ -6,6 +6,7 @@ import Login from './components/Login';
 import PrivateRoutes from './PrivateRoutes';
 
 import './css/App.css';
+import Signup from './components/Signup';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         </Route>
 
         <Route path='/login' element={<Login />} />
+        <Route path='/signup' element={<Signup />} />
       </Routes>
     </div>
   );

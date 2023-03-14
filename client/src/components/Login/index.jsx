@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import axios from 'axios';
 import { useAuthContext } from '../../contexts/AuthContext';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 
 const API_URL = process.env.API_URL || 'http://localhost:8000';
 
@@ -56,6 +56,8 @@ const Login = () => {
       </label>
       <br />
       <button type='submit'>Login</button>
+      <br />
+      <Link to='/signup'>Sign Up</Link>
     </form>
   );
 };
