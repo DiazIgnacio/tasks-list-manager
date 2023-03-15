@@ -10,7 +10,7 @@ const Tasks = () => {
 
   return (
     <>
-      <h1>Tasks</h1>
+      <h1 className="text-3xl font-bold">Tasks</h1>
       <ul>{tasks && tasks.map(task => <li key={task.id}>{task.title}</li>)}</ul>
     </>
   );

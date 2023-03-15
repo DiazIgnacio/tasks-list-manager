@@ -5,12 +5,31 @@ import { useAuthContext } from '../../contexts/AuthContext';
 const Navbar = () => {
   const { logout } = useAuthContext();
   return (
-    <nav>
-      <Link to="/my-account">My Account</Link>
-      <Link to="/users">Users</Link>
-      <Link to="/tasks">Tasks</Link>
-      <Link to="/my-tasks">My Tasks</Link>
-      <button onClick={logout}>Logout</button>
+    <nav className="bg-gray-800 text-white px-8 py-4 border-b-2 w-full z-50">
+      <ul className="flex justify-between items-center">
+        <li className="ml-4">
+          <Link to="/my-account" className="hover:text-blue-500">
+            My Account
+          </Link>
+        </li>
+        <li className="ml-4">
+          <Link to="/users" className="hover:text-blue-500">
+            Users
+          </Link>
+        </li>
+        <li className="ml-4">
+          <Link to="/tasks" className="hover:text-blue-500">
+            Tasks
+          </Link>
+        </li>
+        <li className="ml-4">
+          <Link to="/my-tasks" className="hover:text-blue-500">
+            My Tasks
+          </Link>
+        </li>
+
+        <button onClick={logout}>Logout</button>
+      </ul>
     </nav>
   );
 };
