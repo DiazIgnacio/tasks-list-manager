@@ -1,12 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import apiClient from '../../utils/axios';
+import React from 'react';
+import useTasks from '../../hooks/useTasks';
 
 const Tasks = () => {
-  const [tasks, setTasks] = useState([]);
-
-  useEffect(() => {
-    apiClient.get('/api/tasks').then(setTasks);
-  }, []);
+  const tasks = useTasks();
 
   return (
     <>
