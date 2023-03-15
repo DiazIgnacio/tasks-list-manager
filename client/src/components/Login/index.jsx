@@ -10,7 +10,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  if (isLoggedIn) return <Navigate to="/" replace />;
+  if (isLoggedIn) return <Navigate to="/my-tasks" replace />;
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -20,7 +20,7 @@ const Login = () => {
         email,
         password,
       });
-      navigate('/');
+      navigate('/my-tasks');
       response.token && login(response.token);
     } catch (error) {
       console.error(error);
