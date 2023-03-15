@@ -18,7 +18,9 @@ const PrivateRoutes = ({ children }) => {
   return (
     <>
       <Navbar />
-      {children ? children : <Outlet />}
+      <div className="container mx-auto">
+        {children ? children : <Outlet />}
+      </div>
     </>
   );
 };

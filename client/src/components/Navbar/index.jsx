@@ -5,7 +5,7 @@ import { useAuthContext } from '../../contexts/AuthContext';
 const Navbar = () => {
   const { logout } = useAuthContext();
   return (
-    <nav className="bg-gray-800 text-white px-8 py-4 border-b-2 w-full z-50">
+    <nav className="bg-gray-800 text-white px-8 py-4 border-b-2 w-full z-50 mb-8">
       <ul className="flex justify-between items-center">
         <li className="ml-4">
           <Link to="/my-account" className="hover:text-blue-500">
