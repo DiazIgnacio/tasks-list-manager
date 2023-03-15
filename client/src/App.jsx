@@ -1,7 +1,15 @@
 import { Outlet, Route, Routes } from 'react-router-dom';
 
-import PrivateRoutes from './PrivateRoutes';
-import { Login, Signup, Tasks, MyAccount, Users, MyTasks } from './components';
+import { PrivateRoutes } from './components';
+import {
+  Login,
+  Signup,
+  Tasks,
+  MyAccount,
+  Users,
+  MyTasks,
+  CreateTask,
+} from './pages';
 
 function App() {
   return (
@@ -11,6 +19,7 @@ function App() {
         <Route path="/users" element={<Users />} />
         <Route path="/tasks" element={<Tasks />} />
         <Route path="/my-tasks" element={<MyTasks />} />
+        <Route path="/create-task" element={<CreateTask />} />
       </Route>
 
       <Route element={<Container />}>
@@ -22,7 +31,7 @@ function App() {
 }
 
 const Container = ({ children }) => (
-  <div className="container grid place-items-center w-full h-screen">
+  <div className="container grid h-screen w-full place-items-center">
     {children ? children : <Outlet />}
   </div>
 );

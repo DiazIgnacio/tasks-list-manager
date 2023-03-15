@@ -1,8 +1,5 @@
-export { default as Home } from './Home';
-export { default as Login } from './Login';
-export { default as Signup } from './Signup';
-export { default as Tasks } from './Tasks';
+export { default as Input } from './Input';
+export { default as Label } from './Label';
+export { default as Button } from './Button';
 export { default as Navbar } from './Navbar';
-export { default as MyAccount } from './MyAccount';
-export { default as MyTasks } from './MyTasks';
-export { default as Users } from './Users';
+export { default as PrivateRoutes } from './PrivateRoutes';

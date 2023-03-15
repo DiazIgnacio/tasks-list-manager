@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 
-import { useAuthContext } from '../../contexts/AuthContext';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
+
+import { Button, Input, Label } from '../../components';
+import { useAuthContext } from '../../contexts/AuthContext';
 import apiClient from '../../utils/axios';
 
 const Login = () => {
@@ -27,40 +29,29 @@ const Login = () => {
     }
   };
 
-  const labelClassnames = 'block text-sm font-medium text-gray-700';
-  const inputClassnames =
-    'mt-2 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm';
-  const loginButtonClassnames =
-    'block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm';
-
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
-      <label className={labelClassnames}>
+      <Label>
         Email:
-        <input
+        <Input
           type="email"
           value={email}
-          className={inputClassnames}
           onChange={e => setEmail(e.target.value)}
         />
-      </label>
-      <label className={labelClassnames}>
+      </Label>
+      <Label>
         Password:
-        <input
+        <Input
           type="password"
           value={password}
-          className={inputClassnames}
           onChange={e => setPassword(e.target.value)}
         />
-      </label>
-      <button
-        type="submit"
-        className={loginButtonClassnames + ' bg-blue-400 text-white'}
-      >
+      </Label>
+      <Button type="submit" variant="filled">
         Login
-      </button>
+      </Button>
       <Link to="/signup" className="block">
-        <button className={loginButtonClassnames}>Sign Up</button>
+        <Button>Sign Up</Button>
       </Link>
     </form>
   );
