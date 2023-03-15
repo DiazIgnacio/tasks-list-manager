@@ -9,6 +9,10 @@ const taskSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  userId: {
+    type: String,
+    required: true,
+  },
 });
 
 const Task = mongoose.models.Task || mongoose.model('Task', taskSchema);
