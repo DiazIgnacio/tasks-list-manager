@@ -9,7 +9,7 @@ const MyTasks = () => {
   const { tasks, isLoadingTasks } = useTasks();
   const { user } = useAuthContext();
 
-  const filteredTasks = tasks.filter(task => task.userId === user.id);
+  const filteredTasks = tasks.filter(task => task.assignedTo === user.email);
   return (
     <>
       <div className="flex w-full justify-between">

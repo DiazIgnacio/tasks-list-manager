@@ -9,8 +9,16 @@ const taskSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  userId: {
+  dueDate: {
+    type: Date,
+  },
+  assignedTo: {
     type: String,
+    ref: 'User',
+    required: true,
+  },
+  isCompleted: {
+    type: Boolean,
     required: true,
   },
 });

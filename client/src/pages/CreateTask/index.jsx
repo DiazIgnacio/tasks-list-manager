@@ -90,7 +90,6 @@ const CreateTask = () => {
           name="items"
           value={values.items}
           onChange={onChangeHandler}
-          required
         />
       </Label>
       <Button variant="filled" type="submit">

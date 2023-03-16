@@ -1,5 +1,6 @@
 require('dotenv').config();
 
+const seedDB = require('./seeds/taskSeeder');
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -10,7 +11,9 @@ const port = process.env.PORT || 5000;
 // Connect to MongoDB database
 mongoose
   .connect(process.env.MONGODB_URI, { useNewUrlParser: true })
-  .then(() => console.log('MongoDB connected'))
+  .then(() => {
+    console.log('MongoDB connected');
+  })
   .catch(err => console.log(err));
 
 // Middleware

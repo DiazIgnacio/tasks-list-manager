@@ -21,6 +21,7 @@ const userSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  tasks: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Task' }],
 });
 
 userSchema.pre('save', async function (next) {
