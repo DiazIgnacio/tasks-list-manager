@@ -79,4 +79,4 @@ In case, after developing this, any extra steps (other than `git clone <repo> &&
 
 Since I created the client and server folders, I had to install the dependencies in both folders. I also had to install concurrently in the root folder to run both servers at the same time.
 
-To run in development mode, run `npm run dev` in the root folder. Ask me for the .env file.
+To run in development mode, run `git clone <repo> && cd client && npm install && cd .. && cd server && npm install && cd .. && npm run dev` in the root folder. Ask me for the .env file.
