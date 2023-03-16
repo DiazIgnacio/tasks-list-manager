@@ -26,7 +26,7 @@ const MyAccount = () => {
     const { email, password } = values;
 
     try {
-      await apiClient.patch(`/api/user/${user.id}`, {
+      await apiClient.patch(`/api/users/${user.id}`, {
         email,
         password,
       });

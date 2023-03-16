@@ -22,7 +22,7 @@ app.use('/api/test', require('./routes/test'));
 app.use('/api/tasks', require('./routes/tasks'));
 app.use('/api/login', require('./routes/login'));
 app.use('/api/signup', require('./routes/signup'));
-app.use('/api/user', require('./routes/user'));
+app.use('/api/users', require('./routes/users'));
 
 // Error handling middleware
 app.use((err, req, res, next) => {

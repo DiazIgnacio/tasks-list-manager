@@ -1,6 +1,16 @@
 const User = require('../models/user');
 const router = require('express').Router();
 
+router.get('/', async (req, res) => {
+  try {
+    const users = await User.find();
+    return res.status(200).json(users);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
 router.patch('/:id', async (req, res) => {
   const user = await User.findById(req.params.id);
   const { email, password } = req.body;
