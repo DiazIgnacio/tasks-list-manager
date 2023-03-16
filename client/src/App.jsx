@@ -31,7 +31,7 @@ function App() {
 }
 
 const Container = ({ children }) => (
-  <div className="container grid h-screen w-full place-items-center">
+  <div className="container mx-auto grid h-screen w-full place-items-center">
     {children ? children : <Outlet />}
   </div>
 );
