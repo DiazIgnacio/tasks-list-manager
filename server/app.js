@@ -13,6 +13,7 @@ mongoose
   .connect(process.env.MONGODB_URI, { useNewUrlParser: true })
   .then(() => {
     console.log('MongoDB connected');
+    seedDB();
   })
   .catch(err => console.log(err));
 
