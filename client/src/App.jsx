@@ -20,6 +20,7 @@ function App() {
         <Route path="/my-account" element={<MyAccount />} />
         <Route path="/users" element={<Users />} />
         <Route path="/tasks" element={<Tasks />} />
+        <Route path="/tasks/:id" element={<CreateTask />} />
         <Route path="/my-tasks" element={<MyTasks />} />
         <Route path="/create-task" element={<CreateTask />} />
       </Route>

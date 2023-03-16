@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import { Button, Input, Label } from '../../components';
 import apiClient from '../../utils/axios';
@@ -7,6 +7,7 @@ import apiClient from '../../utils/axios';
 const CreateTask = () => {
   const [values, setValues] = useState(initialValues);
   const navigate = useNavigate();
+  const { id } = useParams();
 
   const onChangeHandler = e => {
     const { name, value } = e.target;
@@ -17,12 +18,18 @@ const CreateTask = () => {
     e.preventDefault();
 
     try {
-      await apiClient.post('/api/tasks', values);
+      id
+        ? await apiClient.put(`/api/tasks/${id}`, values)
+        : await apiClient.post('/api/tasks', values);
       navigate('/my-tasks');
     } catch (error) {
       console.error(error);
     }
   };
+
+  useEffect(() => {
+    id && apiClient.get(`/api/tasks/${id}`).then(data => setValues(data));
+  }, [id]);
 
   useEffect(() => {
     return () => setValues(initialValues);
@@ -93,7 +100,7 @@ const CreateTask = () => {
         />
       </Label>
       <Button variant="filled" type="submit">
-        Create Task
+        {id ? 'Update Task' : 'Create Task'}
       </Button>
     </form>
   );

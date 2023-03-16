@@ -18,6 +18,26 @@ const Tasks = () => {
   );
 };
 
+const Card = ({ to = '#', title = '', description = '', ...props }) => (
+  <div
+    className="mx-auto overflow-hidden rounded-xl bg-white shadow-md"
+    {...props}
+  >
+    <div className="md:flex">
+      <div className="md:flex-shrink-0"></div>
+      <div className="p-8">
+        <Link
+          to={to}
+          className="mt-1 block text-lg font-medium leading-tight text-black hover:underline"
+        >
+          {title}
+        </Link>
+        <p className="mt-2 text-gray-500">{description}</p>
+      </div>
+    </div>
+  </div>
+);
+
 export const CreateTaskButton = () => {
   return (
     <Link to="/create-task">
@@ -36,10 +56,12 @@ export const TasksList = ({ tasks, isLoading }) => {
   return tasks.length ? (
     <ul className="mt-12 grid grid-cols-3 gap-10">
       {tasks.map(task => (
-        <li key={task.id}>
-          <h2 className="text-xl font-bold">{task.title}</h2>
-          <p>{task.description}</p>
-        </li>
+        <Card
+          title={task.title}
+          description={task.description}
+          key={task.id}
+          to={`/tasks/${task.id}`}
+        />
       ))}
     </ul>
   ) : (
