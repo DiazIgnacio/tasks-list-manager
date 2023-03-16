@@ -37,6 +37,17 @@ userSchema.pre('save', async function (next) {
   return next();
 });
 
+userSchema.pre('updateOne', async function (next) {
+  const user = this;
+  const { password, isNewPassword } = user.getUpdate();
+  if (password && isNewPassword) {
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+    this.set('password', hashedPassword);
+  }
+  next();
+});
+
 const User = mongoose.models.User || mongoose.model('User', userSchema);
 
 module.exports = User;
