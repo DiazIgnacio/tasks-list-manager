@@ -39,7 +39,7 @@ Should be a form to update their email and password.
 ### Users
 
 Basic CRUD of Users.
- 
+
 Each user contains:
 
 - email
@@ -76,3 +76,5 @@ Destroy the session and redirects to the **Login** form
 ## Instructions
 
 In case, after developing this, any extra steps (other than `git clone <repo> && cd <folder> && npm install && npm run start` is necessary, please list those steps here).
+
+Since I created the client and server folders, I had to install the dependencies in both folders. I also had to install concurrently in the root folder to run both servers at the same time.
