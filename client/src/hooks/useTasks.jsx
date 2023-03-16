@@ -13,7 +13,7 @@ const useTasks = () => {
     });
   }, []);
 
-  return { tasks, isLoadingTasks };
+  return { tasks, isLoadingTasks, setTasks };
 };
 
 export default useTasks;

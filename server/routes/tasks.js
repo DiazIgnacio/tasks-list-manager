@@ -33,6 +33,19 @@ router.put('/:id', async (req, res) => {
   res.json({ success: true });
 });
 
+router.delete('/:id', async (req, res) => {
+  const task = await Task.findById(req.params.id);
+  const { assignedTo } = task;
+
+  await User.findOneAndUpdate(
+    { email: assignedTo },
+    { $pull: { tasks: task._id } }
+  );
+
+  await Task.findByIdAndDelete(req.params.id);
+  res.json({ success: true });
+});
+
 router.post('/', async (req, res) => {
   const { assignedTo = '' } = req.body;
   const task = new Task(req.body);

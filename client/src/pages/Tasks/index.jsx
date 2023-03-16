@@ -3,22 +3,27 @@ import { Link } from 'react-router-dom';
 import Loader from '../../components/Loader';
 
 import useTasks from '../../hooks/useTasks';
+import apiClient from '../../utils/axios';
 
 const Tasks = () => {
-  const { tasks, isLoadingTasks } = useTasks();
-
   return (
     <>
       <div className="flex w-full justify-between">
         <h1 className="text-4xl font-bold">Tasks</h1>
         <CreateTaskButton />
       </div>
-      <TasksList tasks={tasks} isLoading={isLoadingTasks} />
+      <TasksList />
     </>
   );
 };
 
-const Card = ({ to = '#', title = '', description = '', ...props }) => (
+const Card = ({
+  onClick = '#',
+  title = '',
+  description = '',
+  onDelete,
+  ...props
+}) => (
   <div
     className="mx-auto overflow-hidden rounded-xl bg-white shadow-md"
     {...props}
@@ -26,16 +31,41 @@ const Card = ({ to = '#', title = '', description = '', ...props }) => (
     <div className="md:flex">
       <div className="md:flex-shrink-0"></div>
       <div className="p-8">
-        <Link
-          to={to}
-          className="mt-1 block text-lg font-medium leading-tight text-black hover:underline"
-        >
-          {title}
-        </Link>
+        <div className="flex justify-between">
+          <Link
+            to={onClick}
+            className="mt-1 block text-lg font-medium leading-tight text-gray-800 hover:underline"
+          >
+            {title}
+          </Link>
+          <button
+            className="mt-1 block text-lg font-medium leading-tight text-gray-800 hover:underline"
+            onClick={onDelete}
+          >
+            <CrossIcon />
+          </button>
+        </div>
         <p className="mt-2 text-gray-500">{description}</p>
       </div>
     </div>
   </div>
+);
+
+const CrossIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-6 w-6"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M6 18L18 6M6 6l12 12"
+    />
+  </svg>
 );
 
 export const CreateTaskButton = () => {
@@ -48,10 +78,18 @@ export const CreateTaskButton = () => {
   );
 };
 
-export const TasksList = ({ tasks, isLoading }) => {
-  if (isLoading) {
+export const TasksList = () => {
+  const { tasks, isLoadingTasks, setTasks } = useTasks();
+
+  if (isLoadingTasks) {
     return <Loader />;
   }
+
+  const onDeleteHandler = id => {
+    apiClient.delete(`/api/tasks/${id}`).then(() => {
+      apiClient.get('/api/tasks').then(data => setTasks(data));
+    });
+  };
 
   return tasks.length ? (
     <ul className="mt-12 grid grid-cols-3 gap-10">
@@ -60,7 +98,8 @@ export const TasksList = ({ tasks, isLoading }) => {
           title={task.title}
           description={task.description}
           key={task.id}
-          to={`/tasks/${task.id}`}
+          onClick={`/tasks/${task.id}`}
+          onDelete={() => onDeleteHandler(task.id)}
         />
       ))}
     </ul>
