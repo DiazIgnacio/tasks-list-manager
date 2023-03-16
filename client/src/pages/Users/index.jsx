@@ -2,6 +2,7 @@ import React from 'react';
 
 import useUsers from '../../hooks/useUsers';
 import Loader from '../../components/Loader';
+import { Card } from '../../components';
 
 const Users = () => {
   const { isLoadingUsers, users } = useUsers();
@@ -23,12 +24,7 @@ const UsersList = ({ users, isLoading }) => {
     <ul className="mt-12 grid grid-cols-3 gap-10">
       {users.map(user => {
         const name = user?.firstName + ' ' + user?.lastName;
-        return (
-          <li key={user.id}>
-            {name && <h2 className="text-xl font-bold">{name}</h2>}
-            <p className="mt-2">{user.email}</p>
-          </li>
-        );
+        return <Card key={user.id} title={name} description={user.email} />;
       })}
     </ul>
   ) : (

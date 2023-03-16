@@ -4,3 +4,4 @@ export { default as Button } from './Button';
 export { default as Navbar } from './Navbar';
 export { default as PrivateRoutes } from './PrivateRoutes';
 export { default as Loader } from './Loader';
+export { default as Card } from './Card';
