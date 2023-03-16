@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import Loader from '../../components/Loader';
 
@@ -78,8 +78,15 @@ export const CreateTaskButton = () => {
   );
 };
 
-export const TasksList = () => {
-  const { tasks, isLoadingTasks, setTasks } = useTasks();
+export const TasksList = ({ user }) => {
+  const { tasks: hookTasks, isLoadingTasks, setTasks } = useTasks();
+
+  const tasks = useMemo(() => {
+    if (user) {
+      return hookTasks.filter(task => task.assignedTo === user.email);
+    }
+    return hookTasks;
+  }, [user, hookTasks]);
 
   if (isLoadingTasks) {
     return <Loader />;
