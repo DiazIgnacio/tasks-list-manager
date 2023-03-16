@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 
+import { Label, Input, Button } from '../../components';
 import apiClient from '../../utils/axios';
 
 const Signup = () => {
@@ -26,27 +27,31 @@ const Signup = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
+    <form onSubmit={handleSubmit} className="space-y-5">
+      <Label>
         Email:
-        <input
+        <Input
           type="email"
           name="email"
           value={formData.email}
           onChange={handleChange}
         />
-      </label>
-      <br />
-      <label>
+      </Label>
+      <Label>
         Password:
-        <input
+        <Input
           type="password"
           name="password"
           value={formData.password}
           onChange={handleChange}
         />
-      </label>
-      <button type="submit">Signup</button>
+      </Label>
+      <Button variant="filled" type="submit">
+        Signup
+      </Button>
+      <Button variant="outlined" onClick={() => navigate('/login')}>
+        Back
+      </Button>
     </form>
   );
 };
