@@ -23,8 +23,8 @@ router.post('/', async (req, res) => {
     }
 
     const payload = {
+      ...user._doc,
       id: user.id,
-      email: user.email,
     };
     const secretKey = process.env.JWT_SECRET_KEY;
     const expiresIn = '30m';

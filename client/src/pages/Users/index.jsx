@@ -21,12 +21,15 @@ const UsersList = ({ users, isLoading }) => {
 
   return users.length ? (
     <ul className="mt-12 grid grid-cols-3 gap-10">
-      {users.map(user => (
-        <li key={user.id}>
-          <h2 className="text-xl font-bold">{user?.name}</h2>
-          <p>{user.email}</p>
-        </li>
-      ))}
+      {users.map(user => {
+        const name = user?.firstName + ' ' + user?.lastName;
+        return (
+          <li key={user.id}>
+            {name && <h2 className="text-xl font-bold">{name}</h2>}
+            <p className="mt-2">{user.email}</p>
+          </li>
+        );
+      })}
     </ul>
   ) : (
     <p className="mt-12">No users found</p>

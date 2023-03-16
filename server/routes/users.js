@@ -36,8 +36,7 @@ router.patch('/:id', async (req, res) => {
     }
 
     await user.updateOne({
-      email,
-      password,
+      ...req.body,
       isNewPassword: user.password !== password,
     });
 
