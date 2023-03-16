@@ -10,26 +10,26 @@ const Navbar = () => {
       <ul className="flex items-center justify-between">
         <li className="ml-4">
           <Link to="/my-account" className="transition-all hover:text-blue-500">
-            My Account
+            Mein Konto
           </Link>
         </li>
         <li className="ml-4">
           <Link to="/users" className="transition-all hover:text-blue-500">
-            Users
+            Benutzer
           </Link>
         </li>
         <li className="ml-4">
           <Link to="/tasks" className="transition-all hover:text-blue-500">
-            Tasks
+            Aufgaben
           </Link>
         </li>
         <li className="ml-4">
           <Link to="/my-tasks" className="transition-all hover:text-blue-500">
-            My Tasks
+            Meine Aufgaben
           </Link>
         </li>
 
-        <button onClick={logout}>Logout</button>
+        <button onClick={logout}>Abmeldung</button>
       </ul>
     </nav>
   );

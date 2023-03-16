@@ -44,7 +44,7 @@ const MyAccount = () => {
   return (
     <form className="space-y-8" onSubmit={onSubmitHandler}>
       <Label>
-        First Name:
+        Vorname:
         <Input
           type="text"
           name="firstName"
@@ -53,7 +53,7 @@ const MyAccount = () => {
         />
       </Label>
       <Label>
-        Last Name:
+        Nachname:
         <Input
           type="text"
           name="lastName"
@@ -62,7 +62,7 @@ const MyAccount = () => {
         />
       </Label>
       <Label>
-        Email:
+        E-Mail:
         <Input
           type="email"
           name="email"
@@ -72,7 +72,7 @@ const MyAccount = () => {
         />
       </Label>
       <Label>
-        Password:
+        Passwort:
         <Input
           type="password"
           name="password"

@@ -32,7 +32,7 @@ const Login = () => {
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
       <Label>
-        Email:
+        E-Mail:
         <Input
           type="email"
           value={email}
@@ -40,7 +40,7 @@ const Login = () => {
         />
       </Label>
       <Label>
-        Password:
+        Passwort:
         <Input
           type="password"
           value={password}
@@ -48,10 +48,10 @@ const Login = () => {
         />
       </Label>
       <Button type="submit" variant="filled">
-        Login
+        Anmeldung
       </Button>
       <Link to="/signup" className="block">
-        <Button>Sign Up</Button>
+        <Button>Anmeldung</Button>
       </Link>
     </form>
   );

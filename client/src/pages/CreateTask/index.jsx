@@ -38,7 +38,7 @@ const CreateTask = () => {
   return (
     <form onSubmit={onSubmitHandler} className="space-y-8">
       <Label>
-        Title:
+        Titel:
         <Input
           type="text"
           placeholder="title"
@@ -49,7 +49,7 @@ const CreateTask = () => {
         />
       </Label>
       <Label>
-        Description:
+        Beschreibung:
         <Input
           multiline
           type="text"
@@ -61,7 +61,7 @@ const CreateTask = () => {
         />
       </Label>
       <Label>
-        Due Date:
+        Fälligkeitsdatum:
         <Input
           type="date"
           name="dueDate"
@@ -70,7 +70,7 @@ const CreateTask = () => {
         />
       </Label>
       <Label>
-        Assigned To:
+        Zugewiesen an:
         <Input
           type="text"
           placeholder="assigned to"
@@ -80,7 +80,7 @@ const CreateTask = () => {
         />
       </Label>
       <Label>
-        Is Completed:
+        Ist abgeschlossen:
         <Input
           type="checkbox"
           className="ml-5 inline w-auto"
@@ -89,7 +89,7 @@ const CreateTask = () => {
           onChange={onChangeHandler}
         />
       </Label>
-      <Label>
+      {/* <Label>
         Items:
         <Input
           type="text"
@@ -98,9 +98,9 @@ const CreateTask = () => {
           value={values.items}
           onChange={onChangeHandler}
         />
-      </Label>
+      </Label> */}
       <Button variant="filled" type="submit">
-        {id ? 'Update Task' : 'Create Task'}
+        {id ? 'Aufgabe aktualisieren' : 'Aufgabe erstellen'}
       </Button>
     </form>
   );

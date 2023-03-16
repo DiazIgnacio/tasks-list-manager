@@ -10,7 +10,7 @@ const MyTasks = () => {
   return (
     <>
       <div className="flex w-full justify-between">
-        <h1 className="text-4xl font-bold">Tasks</h1>
+        <h1 className="text-4xl font-bold">Aufgaben</h1>
         <CreateTaskButton />
       </div>
       <TasksList user={user} />

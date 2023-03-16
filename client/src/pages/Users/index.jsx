@@ -9,7 +9,7 @@ const Users = () => {
 
   return (
     <>
-      <h1 className="text-4xl font-bold">Users</h1>
+      <h1 className="text-4xl font-bold">Benutzer</h1>
       <UsersList users={users} isLoading={isLoadingUsers} />
     </>
   );
@@ -28,7 +28,7 @@ const UsersList = ({ users, isLoading }) => {
       })}
     </ul>
   ) : (
-    <p className="mt-12">No users found</p>
+    <p className="mt-12">Keine Benutzer gefunden</p>
   );
 };
 

@@ -29,7 +29,7 @@ const Signup = () => {
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
       <Label>
-        Email:
+        E-Mail:
         <Input
           type="email"
           name="email"
@@ -38,7 +38,7 @@ const Signup = () => {
         />
       </Label>
       <Label>
-        Password:
+        Passwort:
         <Input
           type="password"
           name="password"
@@ -47,10 +47,10 @@ const Signup = () => {
         />
       </Label>
       <Button variant="filled" type="submit">
-        Signup
+        Anmeldung
       </Button>
       <Button variant="outlined" onClick={() => navigate('/login')}>
-        Back
+        Zurück
       </Button>
     </form>
   );

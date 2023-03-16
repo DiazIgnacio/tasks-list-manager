@@ -9,7 +9,7 @@ const Tasks = () => {
   return (
     <>
       <div className="flex w-full justify-between">
-        <h1 className="text-4xl font-bold">Tasks</h1>
+        <h1 className="text-4xl font-bold">Aufgaben</h1>
         <CreateTaskButton />
       </div>
       <TasksList />
@@ -21,7 +21,7 @@ export const CreateTaskButton = () => {
   return (
     <Link to="/create-task">
       <button className="rounded bg-blue-500 py-2 px-4 font-bold text-white transition-all hover:bg-blue-700">
-        Create Task
+        Aufgabe erstellen
       </button>
     </Link>
   );
@@ -60,7 +60,7 @@ export const TasksList = ({ user }) => {
       ))}
     </ul>
   ) : (
-    <p className="mt-12">No tasks found</p>
+    <p className="mt-12">Keine Aufgaben gefunden</p>
   );
 };
 
