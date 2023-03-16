@@ -1,8 +1,8 @@
 {
   "scripts": {
-    "server": "cd server && yarn run dev",
-    "client": "cd client && yarn run start",
-    "dev": "concurrently \"yarn run server\" \"yarn run client\""
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm run start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "devDependencies": {
     "concurrently": "^7.6.0"
