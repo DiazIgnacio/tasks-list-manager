@@ -1,4 +1,5 @@
-import { Outlet, Route, Routes } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Outlet, Route, Routes, useNavigate } from 'react-router-dom';
 
 import { PrivateRoutes } from './components';
 import {
@@ -15,6 +16,7 @@ function App() {
   return (
     <Routes>
       <Route element={<PrivateRoutes />}>
+        <Route path="/" element={<Redirect to="my-tasks" />} />
         <Route path="/my-account" element={<MyAccount />} />
         <Route path="/users" element={<Users />} />
         <Route path="/tasks" element={<Tasks />} />
@@ -29,6 +31,14 @@ function App() {
     </Routes>
   );
 }
+
+const Redirect = ({ to }) => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    navigate(to);
+  }, [navigate, to]);
+  return null;
+};
 
 const Container = ({ children }) => (
   <div className="container mx-auto grid h-screen w-full place-items-center">
