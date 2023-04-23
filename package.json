@@ -11,29 +11,12 @@
     "dev:server": "npm run dev --workspace=server",
     "dev:client": "npm run start --workspace=client",
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
-    "build": "nx build client --workspace=client"
+    "build": "npm run build --workspace=client",
+    "start": "npm run start --workspace=server"
   },
   "devDependencies": {
     "concurrently": "^7.6.0",
     "nx": "15.9.2",
     "@nrwl/nx-cloud": "latest"
-  },
-  "nx": {
-    "targets": {
-      "client": {
-        "executor": "@nx-azure/static-web-apps:build",
-        "options": {
-          "outputPath": "dist/client",
-          "baseHref": "/"
-        }
-      },
-      "server": {
-        "executor": "@nx-azure/static-web-apps:build",
-        "options": {
-          "outputPath": "dist/server",
-          "baseHref": "/"
-        }
-      }
-    }
   }
 }
