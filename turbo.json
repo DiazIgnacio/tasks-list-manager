@@ -1,5 +1,17 @@
 {
   "version": "0.0.1",
+  "builds": [
+    {
+      "src": "client/package.json",
+      "use": "@vercel/node",
+      "config": { "maxLambdaSize": "10mb" }
+    },
+    {
+      "src": "server/package.json",
+      "use": "@vercel/node",
+      "config": { "maxLambdaSize": "10mb" }
+    }
+  ],
   "projects": [
     {
       "name": "client",
