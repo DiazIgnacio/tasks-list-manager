@@ -1,12 +1,16 @@
 {
-  "name": "my-workspace",
+  "workspaces": {
+    "packages": [
+      "client",
+      "server"
+    ],
+    "npmScope": "nx-azure"
+  },
   "scripts": {
-    "server": "cd server && npm run dev",
-    "client": "cd client && npm run start",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "build:client": "cd client && nx build client",
-    "build:server": "cd server && nx build server",
-    "build": "npm run build:client && npm run build:server"
+    "dev:server": "npm run dev --workspace=server",
+    "dev:client": "npm run start --workspace=client",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "build": "nx build client --workspace=client"
   },
   "devDependencies": {
     "concurrently": "^7.6.0",
