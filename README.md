@@ -1,28 +1,12 @@
-# Test Project - Task List Manager - Ignacio Diaz
+This is a web application built using Next.js, a popular React framework for building server-side rendered web applications. The application provides users with a simple and intuitive interface for managing tasks.
 
-This test project has a **hard deadline** of 10 hours. It is not required to complete it 100%, as the main idea is to evaluate the way you prioritize tasks.
+# Project Description
 
-However, of course, it is better if you can complete it all.
+Upon logging in, users are presented with a navigation bar that includes links to different sections of the application, including "My Account", "Users", "Tasks", "My Tasks", and "Logout". The default landing page after logging in is the "My Tasks" section, which displays a list of tasks assigned to the logged-in user.
 
-## Requirements
+## Navigation Bar
 
-The project language is German. In order to translate the texts, it is recommended to use, https://www.deepl.com.
-
-You are free to choose which technology to go for, but it is recommended to use either ReactJS or NextJS. You may choose either Typescript or Javascript, but do keep in mind that developing in Javascript is faster.
-
-For the database, you are completely free to choose (MongoDB, MySQL, PostgreSQL, etc).
-
-Design is optional. But while the project does not need to look perfect, it is preferable to stay out of "Notepad style". It is also perfectly fine to use Bootstrap, Bulma, Materialize, etc.
-
-Everywhere where there is a form, a basic validation needs to be in place. This does not mean that complex validations need to be implemented. But, for example, when creating Users, it is important for two users not to be able to have the same email, or for a user to have an empty email address.
-
-Also, since everything happens behind a login wall, there must be a CLI command (in the `npm run insert:root:user` format or similar) to enter a user to be able to start using the project.
-
-## Project Description
-
-The project consists first of a **Login**, with email and password.
-
-After logging in, the users should land on an interface with a navigation
+The application has a navigation bar that includes the following links:
 
 - My Account
 - Users
@@ -30,53 +14,44 @@ After logging in, the users should land on an interface with a navigation
 - My Tasks
 - Logout
 
-By default, users need to land on "My Tasks" after logging in.
+After logging in, the default landing page is the "My Tasks" section, which displays a list of tasks assigned to the logged-in user.
 
-### My account
+The "My Account" section allows users to update their email and password by filling out a form. The "Users" section provides basic CRUD functionality for managing users, including adding, editing, and deleting users. Each user has an email and password, which are stored securely in an encrypted format.
 
-Should be a form to update their email and password.
+## My Account
 
-### Users
+The "My Account" section allows users to update their email and password by filling out a form.
 
-Basic CRUD of Users.
+## Users
 
-Each user contains:
+The "Users" section provides basic CRUD functionality for managing users, including adding, editing, and deleting users. Each user has an email and password, which are stored securely in an encrypted format.
 
-- email
-- password
+The "Tasks" section provides basic CRUD functionality for managing tasks. Each task has a title, description, due date, assigned user, and a completion status. Tasks can also have items, which are sub-tasks that can be added or removed from the task. Each item has a title and a completion status.
 
-Of course, the password needs to be encrypted and not stored in plain text.
+## Tasks
 
-### Tasks
+The "Tasks" section provides basic CRUD functionality for managing tasks. Each task has the following properties:
 
-Basic CRUD of Tasks.
+- Title
+- Description
+- Due date
+- Assigned user
+- Completion status
 
-Each task contains:
+Tasks can also have items, which are sub-tasks that can be added or removed from the task. Each item has a title and a completion status.
 
-- title
-- description (textarea)
-- due date (date picker. Can be left blank, meaning, no due date)
-- assigned to (any of the users. Can be left blank, meaning, assigned to nobody)
-- is completed (boolean)
-- items
+The "My Tasks" section displays all tasks assigned to the currently logged-in user, sorted by due date. Tasks with no due date are displayed last. The section includes functionality for editing and deleting tasks.
 
-Whereas **items** is a collection of items, each of them simply contains:
+## My Tasks
 
-- title
-- is completed
+The "My Tasks" section displays all tasks assigned to the currently logged-in user, sorted by due date. Tasks with no due date are displayed last. The section includes functionality for editing and deleting tasks.
 
-### My Tasks
+The "Logout" section allows users to log out of the application, destroying their session and redirecting them to the login form. The application is designed to be user-friendly and provide a simple, efficient way for users to manage their tasks.
 
-List of Tasks assigned to the user that's currently logged in, sorted by due date (the ones with no due date go last)
+## Logout
 
-### Logout
+The "Logout" section allows users to log out of the application, destroying their session and redirecting them to the login form.
 
-Destroy the session and redirects to the **Login** form
+The application is designed to be user-friendly and provide a simple, efficient way for users to manage their tasks.
 
-## Instructions
-
-In case, after developing this, any extra steps (other than `git clone <repo> && cd <folder> && npm install && npm run start` is necessary, please list those steps here).
-
-Since I created the client and server folders, I had to install the dependencies in both folders. I also had to install concurrently in the root folder to run both servers at the same time.
-
-To run in development mode, run `git clone <repo> && cd client && npm install && cd .. && cd server && npm install && cd .. && npm run dev` in the root folder. Ask me for the .env file.
+The application is designed to be user-friendly and provide a simple, efficient way for users to manage their tasks.
