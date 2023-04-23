@@ -4,7 +4,9 @@
     "server": "cd server && npm run dev",
     "client": "cd client && npm run start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "build": "nx build my-workspace"
+    "build:client": "cd client && nx build client",
+    "build:server": "cd server && nx build server",
+    "build": "npm run build:client && npm run build:server"
   },
   "devDependencies": {
     "concurrently": "^7.6.0",
@@ -12,6 +14,21 @@
     "@nrwl/nx-cloud": "latest"
   },
   "nx": {
-    "targets": {}
+    "targets": {
+      "client": {
+        "executor": "@nx-azure/static-web-apps:build",
+        "options": {
+          "outputPath": "dist/client",
+          "baseHref": "/"
+        }
+      },
+      "server": {
+        "executor": "@nx-azure/static-web-apps:build",
+        "options": {
+          "outputPath": "dist/server",
+          "baseHref": "/"
+        }
+      }
+    }
   }
 }
