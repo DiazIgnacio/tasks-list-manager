@@ -1,32 +1,33 @@
 {
-  "$schema": "https://turbo.build/schema.json",
-  "pipeline": {
-    "build": {
-      "outputs": [".next/**", "!.next/cache/**"]
+  "version": "0.0.1",
+  "projects": [
+    {
+      "name": "client",
+      "type": "static",
+      "src": "client",
+      "build": {
+        "cmd": "npm run build",
+        "output": "dist/client"
+      }
     },
-    "lint": {},
-    "test": {
-      "inputs": ["**/*.test.ts", "**/*.test.tsx"],
-      "outputs": ["**/*.test.ts", "**/*.test.tsx"]
-    },
-    "typecheck": {
-      "inputs": ["**/*.ts", "**/*.tsx"],
-      "outputs": ["**/*.ts", "**/*.tsx"]
-    },
-    "format": {
-      "inputs": ["**/*.ts", "**/*.tsx"],
-      "outputs": ["**/*.ts", "**/*.tsx"]
-    },
-    "start": {
-      "inputs": ["**/*.ts", "**/*.tsx"],
-      "outputs": ["**/*.ts", "**/*.tsx"]
-    },
-    "dev": {
-      "inputs": ["**/*.ts", "**/*.tsx"],
-      "outputs": ["**/*.ts", "**/*.tsx"]
-    },
-    "deploy": {
-      "dependsOn": ["build", "test", "lint"]
+    {
+      "name": "server",
+      "type": "npm",
+      "src": "server",
+      "build": {
+        "cmd": "npm run build",
+        "output": "dist/server"
+      }
     }
-  }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "server/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/client/$1"
+    }
+  ]
 }
