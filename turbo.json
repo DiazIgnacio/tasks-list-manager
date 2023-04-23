@@ -1,26 +1,18 @@
 {
-  "version": "0.2",
-  "env": {
-    "NODE_ENV": "production"
-  },
-  "build": {
-    "env": {
-      "SKIP_PREFLIGHT_CHECK": "true"
+  "version": 2,
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@now/node-server"
     },
-    "src": "client",
-    "use": "@vercel/static-build",
-    "config": {
-      "maxLambdaSize": "50mb"
+    {
+      "src": "client/package.json",
+      "use": "@now/static-build",
+      "config": { "distDir": "client/build" }
     }
-  },
+  ],
   "routes": [
-    {
-      "src": "/api/.*",
-      "dest": "server/app.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "client/build/$1"
-    }
+    { "src": "/api/.*", "dest": "server.js" },
+    { "src": "/(.*)", "dest": "client/build/$1" }
   ]
 }
