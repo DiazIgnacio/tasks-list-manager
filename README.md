@@ -1,4 +1,4 @@
-This is a web application built using Next.js, a popular React framework for building server-side rendered web applications. The application provides users with a simple and intuitive interface for managing tasks. test
+This is a web application built using Next.js, a popular React framework for building server-side rendered web applications. The application provides users with a simple and intuitive interface for managing tasks.
 
 # Project Description
 
