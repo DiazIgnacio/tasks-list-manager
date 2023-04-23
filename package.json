@@ -15,8 +15,6 @@
     "start": "npm run start --workspace=server"
   },
   "devDependencies": {
-    "concurrently": "^7.6.0",
-    "nx": "15.9.2",
-    "@nrwl/nx-cloud": "latest"
+    "concurrently": "^7.6.0"
   }
 }
