@@ -1,19 +1,28 @@
 {
-  "version": "0.1.0",
-  "rewrites": [
+  "version": "1",
+  "engines": {
+    "node": "14.x"
+  },
+  "routes": [
     {
-      "source": "/api/:path*",
-      "destination": "http://localhost:3000/:path*"
+      "src": "/api/(.*)",
+      "dest": "server/app.js"
+    },
+    {
+      "src": "(/.*)?",
+      "dest": "client/build/$1"
     }
   ],
-  "env": {
-    "API_URL": "/api"
-  },
-  "build": {
-    "publish": ["server/dist/**/*", "client/dist/**/*"],
-    "functions": {
-      "src": "server/functions",
-      "output": "server/dist/functions"
+  "builds": {
+    "server": {
+      "use": "@vercel/node",
+      "config": {
+        "maxLambdaSize": "50mb"
+      }
+    },
+    "client": {
+      "use": "@vercel/static-build",
+      "inputs": ["client"]
     }
   }
 }
