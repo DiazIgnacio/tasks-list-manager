@@ -1,28 +1,26 @@
 {
-  "version": "1",
-  "engines": {
-    "node": "14.x"
+  "version": "0.2",
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "build": {
+    "env": {
+      "SKIP_PREFLIGHT_CHECK": "true"
+    },
+    "src": "client",
+    "use": "@vercel/static-build",
+    "config": {
+      "maxLambdaSize": "50mb"
+    }
   },
   "routes": [
     {
-      "src": "/api/(.*)",
+      "src": "/api/.*",
       "dest": "server/app.js"
     },
     {
-      "src": "(/.*)?",
+      "src": "/(.*)",
       "dest": "client/build/$1"
     }
-  ],
-  "builds": {
-    "server": {
-      "use": "@vercel/node",
-      "config": {
-        "maxLambdaSize": "50mb"
-      }
-    },
-    "client": {
-      "use": "@vercel/static-build",
-      "inputs": ["client"]
-    }
-  }
+  ]
 }
