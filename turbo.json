@@ -1,0 +1,32 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "pipeline": {
+    "build": {
+      "outputs": [".next/**", "!.next/cache/**"]
+    },
+    "lint": {},
+    "test": {
+      "inputs": ["**/*.test.ts", "**/*.test.tsx"],
+      "outputs": ["**/*.test.ts", "**/*.test.tsx"]
+    },
+    "typecheck": {
+      "inputs": ["**/*.ts", "**/*.tsx"],
+      "outputs": ["**/*.ts", "**/*.tsx"]
+    },
+    "format": {
+      "inputs": ["**/*.ts", "**/*.tsx"],
+      "outputs": ["**/*.ts", "**/*.tsx"]
+    },
+    "start": {
+      "inputs": ["**/*.ts", "**/*.tsx"],
+      "outputs": ["**/*.ts", "**/*.tsx"]
+    },
+    "dev": {
+      "inputs": ["**/*.ts", "**/*.tsx"],
+      "outputs": ["**/*.ts", "**/*.tsx"]
+    },
+    "deploy": {
+      "dependsOn": ["build", "test", "lint"]
+    }
+  }
+}

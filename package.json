@@ -3,8 +3,7 @@
     "packages": [
       "client",
       "server"
-    ],
-    "npmScope": "nx-azure"
+    ]
   },
   "private": true,
   "scripts": {
