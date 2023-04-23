@@ -1,45 +1,19 @@
 {
-  "version": "0.0.1",
-  "builds": [
+  "version": "0.1.0",
+  "rewrites": [
     {
-      "src": "client/package.json",
-      "use": "@vercel/node",
-      "config": { "maxLambdaSize": "10mb" }
-    },
-    {
-      "src": "server/package.json",
-      "use": "@vercel/node",
-      "config": { "maxLambdaSize": "10mb" }
+      "source": "/api/:path*",
+      "destination": "http://localhost:3000/:path*"
     }
   ],
-  "projects": [
-    {
-      "name": "client",
-      "type": "static",
-      "src": "client",
-      "build": {
-        "cmd": "npm run build",
-        "output": "dist/client"
-      }
-    },
-    {
-      "name": "server",
-      "type": "npm",
-      "src": "server",
-      "build": {
-        "cmd": "npm run build",
-        "output": "dist/server"
-      }
+  "env": {
+    "API_URL": "/api"
+  },
+  "build": {
+    "publish": ["server/dist/**/*", "client/dist/**/*"],
+    "functions": {
+      "src": "server/functions",
+      "output": "server/dist/functions"
     }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "server/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/client/$1"
-    }
-  ]
+  }
 }
