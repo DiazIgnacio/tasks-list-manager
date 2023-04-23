@@ -1,10 +1,16 @@
 {
+  "name": "my-workspace",
   "scripts": {
     "server": "cd server && npm run dev",
     "client": "cd client && npm run start",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "nx build my-workspace"
   },
   "devDependencies": {
-    "concurrently": "^7.6.0"
+    "concurrently": "^7.6.0",
+    "nx": "15.9.2"
+  },
+  "nx": {
+    "targets": {}
   }
 }
